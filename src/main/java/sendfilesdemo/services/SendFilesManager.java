@@ -7,15 +7,11 @@ import java.util.List;
 /**
  * @author kit
  */
-public class SendFilesManager {
+public interface SendFilesManager {
 
-    public String createMessage(String sender, String recepient, List<String> files, String subject, String message) {
-        return null;
-    }
+    String createMessage(String sender, String recepient, List<String> files, String subject, String message);
 
-    public void upload(String messageId, String fileName, InputStream filePart) {
-    }
+    void upload(String messageId, String fileName, InputStream filePart);
 
-    public void download(String messageId, String fileName, OutputStream out) {
-    }
+    void download(String messageId, String fileName, OutputStream out);
 }
