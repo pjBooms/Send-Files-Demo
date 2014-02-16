@@ -1,5 +1,7 @@
 package sendfilesdemo.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import sendfilesdemo.model.Message;
 import sendfilesdemo.services.exceptions.ResourceNotFoundException;
 
@@ -12,11 +14,23 @@ import java.util.List;
 /**
  * @author kit
  */
-public interface SendFilesManager {
+@Component
+public class SendFilesManager {
 
-    String createMessage(Message message);
+    @Autowired
+    MessageManager messageManager;
+    @Autowired
+    FilesManager filesManager;
 
-    void upload(String messageId, String fileName, InputStream filePart) throws ResourceNotFoundException, IOException;
+    public String createMessage(Message message) {
+        return messageManager.create(message);
+    }
 
-    void download(String messageId, String fileName, OutputStream out) throws ResourceNotFoundException, IOException;
+    public void upload(String messageId, String fileName, InputStream filePart) throws ResourceNotFoundException, IOException {
+        filesManager.upload(messageId, fileName, filePart);
+    }
+
+    public void download(String messageId, String fileName, OutputStream out)  throws ResourceNotFoundException, IOException {
+        filesManager.download(messageId, fileName, out);
+    }
 }
