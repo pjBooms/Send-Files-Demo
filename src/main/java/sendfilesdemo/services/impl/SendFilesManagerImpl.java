@@ -16,7 +16,7 @@ import java.io.*;
  * @author kit
  */
 @Component
-public class SendFilesManagerImpl implements SendFilesManager, FilesManager {
+public class SendFilesManagerImpl implements SendFilesManager {
 
     @Autowired
     MessageManager messageManager;

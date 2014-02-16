@@ -16,7 +16,7 @@ public interface SendFilesManager {
 
     String createMessage(Message message);
 
-    void upload(String messageId, String fileName, InputStream filePart) throws ResourceNotFoundException, FileNotFoundException, IOException;
+    void upload(String messageId, String fileName, InputStream filePart) throws ResourceNotFoundException, IOException;
 
     void download(String messageId, String fileName, OutputStream out) throws ResourceNotFoundException, IOException;
 }
