@@ -23,14 +23,14 @@ public class FilesManager {
 
     private File getAndCheckFile(String messageId, String fileName) throws ResourceNotFoundException {
         Message msg = messageManager.get(messageId);
-        if (!msg.getFiles().contains(fileName)) {
+        if ((msg == null) || !msg.getFiles().contains(fileName)) {
             throw new ResourceNotFoundException();
         }
 
         return getFile(messageId, fileName);
     }
 
-    File getFile(String messageId, String fileName) {
+    public File getFile(String messageId, String fileName) {
         return new File(new File(rootPath, messageId), fileName);
     }
 

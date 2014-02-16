@@ -5,11 +5,9 @@ import org.springframework.stereotype.Component;
 import sendfilesdemo.model.Message;
 import sendfilesdemo.services.exceptions.ResourceNotFoundException;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.List;
 
 /**
  * @author kit
